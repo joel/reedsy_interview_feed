@@ -1,8 +1,8 @@
 module ReedsyInterviewFeed
   module Models
     RSpec.describe Book do
-      let(:author) { Author.new('Yuval Noah Harari') }
-      let(:book)   { Book.new('Sapiens', 2017, author) }
+      let(:author) { Author.new({ name: 'Yuval Noah Harari' }) }
+      let(:book)   { Book.new(title: 'Sapiens', published_on: 2017, author: author) }
 
       it do
         expect(book.title).to eql('Sapiens')

@@ -1,4 +1,9 @@
 PATH
+  remote: ../reedsy_interview_models
+  specs:
+    reedsy_interview_models (0.1.0)
+
+PATH
   remote: .
   specs:
     reedsy_interview_feed (0.1.0)
@@ -42,6 +47,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   rake (~> 10.0)
   reedsy_interview_feed!
+  reedsy_interview_models!
   rspec (~> 3.0)
 
 BUNDLED WITH

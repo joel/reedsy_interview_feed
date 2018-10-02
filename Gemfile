@@ -6,3 +6,4 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'activesupport'
+gem 'reedsy_interview_models', path: '../reedsy_interview_models'
