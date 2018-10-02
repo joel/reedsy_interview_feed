@@ -5,6 +5,7 @@ module ReedsyInterviewFeed
     eager_autoload do
       autoload :Base
       autoload :User
+      autoload :Author
     end
   end
 end
