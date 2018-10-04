@@ -28,10 +28,10 @@ ActiveRecord::Schema.define do
     t.timestamps
   end
 
-  # create_table(:follows) do |t|
-  #   t.references :user
-  #   t.references :author
-  #
-  #   t.timestamps
-  # end
+  create_table(:follows) do |t|
+    t.references :user
+    t.references :author
+
+    t.timestamps
+  end
 end

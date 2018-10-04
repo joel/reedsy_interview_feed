@@ -8,6 +8,7 @@ module ReedsyInterviewFeed
       autoload :Author
       autoload :Book
       autoload :Like
+      autoload :Follow
     end
   end
 end
