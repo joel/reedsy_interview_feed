@@ -1,9 +1,6 @@
 module ReedsyInterviewFeed
   module Models
-    class User
-      include Base
-      include ReedsyInterviewModels::Entity
-      attributes :name
+    class User < Base
     end
   end
 end

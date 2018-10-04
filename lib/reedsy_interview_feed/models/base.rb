@@ -1,10 +1,8 @@
 module ReedsyInterviewFeed
   module Models
-    module Base
+    class Base < ActiveRecord::Base
+      self.abstract_class = true
 
-      def id
-        object_id
-      end
     end
   end
 end

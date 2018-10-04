@@ -1,9 +1,7 @@
 module ReedsyInterviewFeed
   module Models
-    class Author
-      include Base
-      include ReedsyInterviewModels::Entity
-      attributes :name
+    class Author < Base
+      has_many :books
     end
   end
 end
