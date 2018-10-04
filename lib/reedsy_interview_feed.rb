@@ -5,4 +5,5 @@ module ReedsyInterviewFeed
   extend ActiveSupport::Autoload
 
   autoload :Models
+  autoload :Services
 end
