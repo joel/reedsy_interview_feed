@@ -11,6 +11,7 @@ gem 'activerecord'
 ENV['ADAPTER'] ||= 'active_record'
 
 group :test do
+  gem 'pry'
   case ENV['ADAPTER']
   when nil, 'active_record'
     gem 'sqlite3', platform: 'ruby'

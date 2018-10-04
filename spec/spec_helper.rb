@@ -1,6 +1,8 @@
 require "bundler/setup"
 require "reedsy_interview_feed"
 
+require 'pry'
+
 ENV['ADAPTER'] ||= 'active_record'
 
 load File.dirname(__FILE__) + "/support/adapters/#{ENV['ADAPTER']}.rb"
