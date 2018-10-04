@@ -1,9 +1,8 @@
 module ReedsyInterviewFeed
   module Models
-    class User
-      include Base
-      include ReedsyInterviewModels::Entity
-      attributes :name
+    class User < Base
+      has_many :likes
+      has_many :follows
     end
   end
 end

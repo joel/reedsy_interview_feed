@@ -1,8 +1,8 @@
 module ReedsyInterviewFeed
   module Models
-    class Book < Base
+    class Follow < Base
+      belongs_to :user
       belongs_to :author
-      has_many :likes
     end
   end
 end

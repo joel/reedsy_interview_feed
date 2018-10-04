@@ -6,4 +6,16 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'activesupport'
-gem 'reedsy_interview_models', path: '../reedsy_interview_models'
+gem 'activerecord'
+
+ENV['ADAPTER'] ||= 'active_record'
+
+group :test do
+  gem 'pry'
+  case ENV['ADAPTER']
+  when nil, 'active_record'
+    gem 'sqlite3', platform: 'ruby'
+  else
+    raise "Unknown model adapter: #{ENV['ADAPTER']}"
+  end
+end
