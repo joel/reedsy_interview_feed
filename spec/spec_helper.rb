@@ -2,6 +2,7 @@ require "bundler/setup"
 require "reedsy_interview_feed"
 
 require 'pry'
+require 'bunny-mock'
 
 ENV['ADAPTER'] ||= 'active_record'
 
@@ -16,5 +17,9 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:each) do
+    ReedsyInterviewFeed.configuration.connection = BunnyMock.new.start
   end
 end

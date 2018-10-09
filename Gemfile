@@ -7,11 +7,13 @@ gemspec
 
 gem 'activesupport'
 gem 'activerecord'
+gem 'bunny'
 
 ENV['ADAPTER'] ||= 'active_record'
 
 group :test do
   gem 'pry'
+  gem 'bunny-mock'
   case ENV['ADAPTER']
   when nil, 'active_record'
     gem 'sqlite3', platform: 'ruby'
