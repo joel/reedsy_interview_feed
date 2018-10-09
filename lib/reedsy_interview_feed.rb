@@ -1,5 +1,6 @@
 require "reedsy_interview_feed/version"
 require "active_support/dependencies/autoload"
+require 'wisper'
 
 module ReedsyInterviewFeed
   extend ActiveSupport::Autoload
@@ -8,6 +9,7 @@ module ReedsyInterviewFeed
   autoload :Services
   autoload :Configuration
   autoload :Messages
+  autoload :Listeners
 
   class << self
     attr_writer :configuration

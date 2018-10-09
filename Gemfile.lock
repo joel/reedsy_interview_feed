@@ -51,6 +51,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    wisper (2.0.0)
+    wisper-rspec (1.1.0)
 
 PLATFORMS
   ruby
@@ -66,6 +68,8 @@ DEPENDENCIES
   reedsy_interview_feed!
   rspec (~> 3.0)
   sqlite3
+  wisper
+  wisper-rspec
 
 BUNDLED WITH
    1.16.5

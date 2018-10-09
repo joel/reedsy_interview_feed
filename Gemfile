@@ -8,12 +8,14 @@ gemspec
 gem 'activesupport'
 gem 'activerecord'
 gem 'bunny'
+gem 'wisper'
 
 ENV['ADAPTER'] ||= 'active_record'
 
 group :test do
   gem 'pry'
   gem 'bunny-mock'
+  gem 'wisper-rspec'
   case ENV['ADAPTER']
   when nil, 'active_record'
     gem 'sqlite3', platform: 'ruby'

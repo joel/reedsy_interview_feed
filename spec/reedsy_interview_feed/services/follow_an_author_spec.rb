@@ -11,7 +11,7 @@ module ReedsyInterviewFeed
           subject.call
         }.to change {
           user.follows.count
-        }.to(+1)
+        }.to(+1).and broadcast(:notify)
       end
 
     end

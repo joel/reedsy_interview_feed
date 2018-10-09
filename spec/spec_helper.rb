@@ -3,6 +3,7 @@ require "reedsy_interview_feed"
 
 require 'pry'
 require 'bunny-mock'
+require 'wisper/rspec/matchers'
 
 ENV['ADAPTER'] ||= 'active_record'
 
@@ -22,4 +23,6 @@ RSpec.configure do |config|
   config.before(:each) do
     ReedsyInterviewFeed.configuration.connection = BunnyMock.new.start
   end
+
+  config.include(Wisper::RSpec::BroadcastMatcher)
 end
