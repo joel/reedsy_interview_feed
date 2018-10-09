@@ -10,6 +10,7 @@ module ReedsyInterviewFeed
   autoload :Configuration
   autoload :Messages
   autoload :Listeners
+  autoload :Utils
 
   class << self
     attr_writer :configuration

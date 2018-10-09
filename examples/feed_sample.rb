@@ -36,5 +36,5 @@ user = OpenStruct.new({ id: 1 })
 feed = ReedsyInterviewFeed::Services::Feed.new(user)
 
 # Get the title of the following books
-feed.retrieve
+# feed.retrieve
 feed.watch

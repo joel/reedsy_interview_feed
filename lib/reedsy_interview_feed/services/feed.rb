@@ -27,9 +27,7 @@ module ReedsyInterviewFeed
       private
 
       def repaint!
-        @feed.reverse.each_with_index do |entry, index|
-          puts("#{index}:\t#{entry}")
-        end
+        Utils::ConsoleOutput.new.repaint(@feed.reverse)
       end
 
       def data
