@@ -22,8 +22,38 @@ Or install it yourself as:
 
 ## Usage
 
+![Screenshot](https://user-images.githubusercontent.com/5789/46665539-7282bf80-cbc4-11e8-9a3e-11ed5cce2588.gif)
+
 ```ruby
-#Create an users
+# Start RabbitMQ
+docker-compose up
+
+# Open an terminal
+bin/console
+
+# Open a connection to RabbitMQ
+ReedsyInterviewFeed.configure do |config|
+  config.connection = ::Bunny.new(automatically_recover: false).tap { |c| c.start }
+end
+
+# Open the Feed for a specific user
+user = OpenStruct.new({ id: 1 })
+
+# Get the feed of the user
+feed = ReedsyInterviewFeed::Services::Feed.new(user)
+
+# Watch the feed
+feed.watch
+
+# Open another terminal session
+bin/console
+
+# Open a connection to RabbitMQ
+ReedsyInterviewFeed.configure do |config|
+  config.connection = ::Bunny.new(automatically_recover: false).tap { |c| c.start }
+end
+
+# Create an user
 user = ReedsyInterviewFeed::Models::User.create({ name: 'Joel AZEMAR' })
 
 # Create Author
@@ -35,18 +65,18 @@ ReedsyInterviewFeed::Models::Book.create({ title: 'Homo Deus', author: author })
 ReedsyInterviewFeed::Models::Book.create({ title: '21 Lessons for the 21st Century', author: author })
 
 # Follow this author
-ReedsyInterviewFeed::Services::FollowAnAuthor.new(user: user, author: author).call
+Wisper.subscribe(ReedsyInterviewFeed::Listeners::FollowAuthorNotifier.new) do
+  ReedsyInterviewFeed::Services::FollowAnAuthor.new(user: user, author: author).call
+end
+# On the first terminal session you can see the books show up on the feed
 
 # Add another book and star it
 book = ReedsyInterviewFeed::Models::Book.create({ title: 'Alan Turing: The Enigma' })
-ReedsyInterviewFeed::Services::Upvote.new(user: user, book: book).call
 
-# Get the feed of the user
-feed = ReedsyInterviewFeed::Services::Feed.new(user)
-
-# Get the title of the following books
-feed.retrieve.map(&:title)
-#=> ["Sapiens", "Homo Deus", "21 Lessons for the 21st Century", "Alan Turing: The Enigma"]
+Wisper.subscribe(ReedsyInterviewFeed::Listeners::StarBookNotifier.new) do
+  ReedsyInterviewFeed::Services::Upvote.new(user: user, book: book).call
+end
+# On the first terminal session you can see the books show up on the feed
 ```
 
 ## Development

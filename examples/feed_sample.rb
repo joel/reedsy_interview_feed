@@ -10,6 +10,8 @@ author = ReedsyInterviewFeed::Models::Author.create({ name: 'Yuval Noha Harari' 
 
 # Add a bunch of books
 ReedsyInterviewFeed::Models::Book.create({ title: 'Sapiens', author: author })
+ReedsyInterviewFeed::Models::Book.create({ title: 'Homo Deus', author: author })
+ReedsyInterviewFeed::Models::Book.create({ title: '21 Lessons for the 21st Century', author: author })
 
 # Follow this author
 Wisper.subscribe(ReedsyInterviewFeed::Listeners::FollowAuthorNotifier.new) do
