@@ -20,7 +20,7 @@ module ReedsyInterviewFeed
       let(:feed) { described_class.new(user) }
 
       it do
-        expect(feed.retrieve.map(&:title)).to eql(
+        expect(feed.send(:data).map(&:title)).to eql(
           [
             'Sapiens',
             'Homo Deus',
